@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
   {
@@ -13,24 +13,34 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-    
     // Thoughts array referencing Thought model
     thoughts: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Thought',
+        ref: "Thought",
       },
     ],
-    // Empty friends arrray self-referencing this User model 
+    // Friends arrray self-referencing this User model
     friends: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'User',
+        ref: "User",
       },
     ],
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+    id: false,
   }
 );
 
-const User = model('User', userSchema);
+// Create a virtual called friendCount that retrieves the length of the user's friends array field
+userSchema.virtual("friendCount").get(function () {
+  return this.friends.length;
+});
+
+const User = model("User", userSchema);
 
 module.exports = User;
