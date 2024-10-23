@@ -4,8 +4,8 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      required: true,
       unique: true,
+      required: true,
       trim: true,
     },
     email: {
@@ -13,7 +13,22 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-  },
+    
+    // Thoughts array referencing Thought model
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Thought',
+      },
+    ],
+    // Empty friends arrray self-referencing this User model 
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+      },
+    ],
+  }
 );
 
 const User = model('User', userSchema);
