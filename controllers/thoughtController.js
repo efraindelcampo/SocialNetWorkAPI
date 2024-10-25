@@ -79,7 +79,7 @@ const thoughtController = {
   // Delete a thought
   async deleteThought(req, res) {
     try {
-      const thoughts = await Thought.findOneAndRemove({
+      const thoughts = await Thought.findOneAndDelete({
         _id: req.params.thoughtId,
       });
 
@@ -118,7 +118,7 @@ const thoughtController = {
     }
   },
 
-  // Remove reaction from a thought
+  // Remove a reaction from a thought
   async removeReaction(req, res) {
     try {
       const thoughts = await Thought.findOneAndUpdate(
