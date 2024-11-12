@@ -40,4 +40,4 @@ Open source, always open to constructive criticisim.
 To see more projects, visit my GitHub profile at [https://github.com/efraindelcampo](https://github.com/efraindelcampo).
 If you have any questions, please feel free to email me at efraindelcampo17@hotmail.com.
 
-Link to walkthrough video found here <>
+Link to walkthrough video found here <https://drive.google.com/file/d/1-Q9-AGrZrXGTMnSMSOsj-vb5IobfraqB/view?usp=drive_link>
